@@ -1,0 +1,78 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Arena de Chefões | Compilador vs. Bug Supremo</title>
+  <link rel="stylesheet" href="/style.css">
+  <script src="/app.js" defer></script>
+</head>
+<body>
+  <main class="arena">
+    <header class="cabecalho">
+      <span class="etiqueta">Equipe Ayran, Rayan e Kauan</span>
+      <h1>⚔️ Arena de Chefões</h1>
+      <p>Desça ao porão do código e derrote o bug que derruba todo projeto na véspera da entrega.</p>
+    </header>
+
+    <!-- Tela de escolha de dificuldade (extra): aparece antes da batalha -->
+    <section id="tela-dificuldade" class="escolha" aria-label="Escolha da dificuldade">
+      <h2>Escolha a dificuldade</h2>
+      <p>A dificuldade muda só a fúria do chefão (quando ele está com pouca vida). As regras básicas são iguais em todos os níveis.</p>
+      <div class="niveis">
+        <button class="nivel facil" data-dificuldade="facil"><strong>🌱 Fácil</strong><span>Fúria leve</span></button>
+        <button class="nivel medio" data-dificuldade="medio"><strong>⚔️ Médio</strong><span>Fúria moderada</span></button>
+        <button class="nivel dificil" data-dificuldade="dificil"><strong>🔥 Difícil</strong><span>Fúria forte</span></button>
+        <button class="nivel impossivel" data-dificuldade="impossivel"><strong>💀 Impossível</strong><span>Fúria brutal</span></button>
+      </div>
+    </section>
+
+    <div id="tela-batalha" hidden>
+    <p class="nivel-atual">Dificuldade: <strong id="nivel-nome" data-nivel="medio">Médio</strong></p>
+    <section class="tabuleiro" aria-label="Painel de batalha">
+      <article class="combatente heroi">
+        <div class="avatar" aria-hidden="true">🧑‍💻</div>
+        <p class="classe">Herói</p>
+        <h2>Guardião do Compilador</h2>
+        <p id="vida-jogador-texto" class="indicador">100 / 100 PV</p>
+        <div class="barra"><div id="barra-jogador" class="preenchimento vida" style="width:100%"></div></div>
+        <small>Poções restantes: <strong id="pocoes">2</strong></small>
+      </article>
+      <div class="versus">VS</div>
+      <article class="combatente chefe">
+        <div class="avatar" aria-hidden="true">👾</div>
+        <p class="classe">Chefão final</p>
+        <h2>Bug Supremo</h2>
+        <span id="selo-furia" class="selo-furia" hidden>🔥 FÚRIA</span>
+        <p id="vida-chefe-texto" class="indicador">150 / 150 PV</p>
+        <div class="barra"><div id="barra-chefe" class="preenchimento inimigo" style="width:100%"></div></div>
+        <small>A cada 3 turnos usa um golpe especial.</small>
+      </article>
+    </section>
+
+    <section class="controle">
+      <div class="controle-titulo"><h2>Escolha sua ação</h2><span id="turno">Turno 1</span></div>
+      <p id="aviso" class="aviso">Próximo contra-ataque: COMUM.</p>
+      <div class="acoes">
+        <button data-acao="atacar" class="botao atacar">⚔️ Atacar</button>
+        <button data-acao="defender" class="botao defender">🛡️ Defender</button>
+        <button data-acao="curar" class="botao curar">🧪 Curar</button>
+      </div>
+      <div class="rodape-controle">
+        <button id="reiniciar" class="reiniciar">↻ Reiniciar batalha</button>
+        <button id="trocar-dificuldade" class="reiniciar">🎚️ Trocar dificuldade</button>
+      </div>
+    </section>
+
+    <section class="painel-mensagem" aria-live="polite">
+      <h2>📜 Registro do combate</h2>
+      <p id="mensagem">A batalha começou! Escolha sua primeira ação.</p>
+      <p id="resultado" class="resultado"></p>
+      <h3>Últimas ações</h3>
+      <ul id="historico"></ul>
+    </section>
+    </div>
+    <footer>Projeto de Desenvolvimento de Sistemas · Java no servidor, HTML, CSS e JavaScript no navegador</footer>
+  </main>
+</body>
+</html>
